@@ -17,7 +17,9 @@ public class App1 {
                 "\n2 - Cadastrar não perecível"+
                 "\n3 - Listar Perecíveis"+
                 "\n4 - Listar não perecíveis"+
-                "\n5 - Sair");
+                "\n5 - Listar os tres mais baratos"+
+                "\n6 - Pesquisar pela descrição"+
+                "\n7 - Sair");
                 opcao = entrada.nextInt();
                 switch (opcao) {
                     case 1:
@@ -62,7 +64,9 @@ public class App1 {
                             System.out.println("Armazenamento:"+np.getLocalArmazenamento()+"\n\n");
                         }
                         break; 
-                    case 5: break;                       
+                    case 5: 
+                            
+                    break;                       
                     default:
                         System.out.println("Opção inválida...");
                         break;

@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import model.*;
 
-import model.NaoPerecivel;
-import model.Perecivel;
 
 public class App2 {
     public static void main(String[] args) {
@@ -17,7 +16,9 @@ public class App2 {
                 "\n2 - Cadastrar não perecível"+
                 "\n3 - Listar Perecíveis"+
                 "\n4 - Listar não perecíveis"+
-                "\n5 - Sair");
+                "\n5 - Listar os tres mais baratos"+
+                "\n6 - Pesquisar pela descrição"+
+                "\n7 - Sair");
                 opcao = entrada.nextInt();
                 switch (opcao) {
                     case 1: 
@@ -43,8 +44,26 @@ public class App2 {
                             np.mostrar();
                             System.out.println(np);
                         }
-                        break; 
-                    case 5: break;                       
+                        break;
+                    case 5:
+                        //instanceof() metodo para buscar o objeto em outro array
+                        ArrayList<Estoque> maisBarato = new ArrayList<>();
+                        Perecivel menor1=null, menor2=null, menor3=null;
+                            for (Perecivel pe:listaPereciveis) {
+                                if(menor1 == null||pe.getPreco() < menor1.getPreco()){
+                                    menor3= menor2;
+                                    menor2= menor1;
+                                    menor1 = pe;
+                                }else if(menor2 == null||(pe.getPreco() < menor2.getPreco() && pe.getPreco() > menor1.getPreco())){
+                                    menor3 = menor2;
+                                    menor2 = pe;
+                                }
+                                else if(menor3==null||(pe.getPreco() < menor3.getPreco() && pe.getPreco() > menor2.getPreco())){
+                                    menor3 = pe;
+                                }
+
+                            }
+                     break;                       
                     default:
                         System.out.println("Opção inválida...");
                         break;
